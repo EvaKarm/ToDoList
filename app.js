@@ -2,28 +2,51 @@
 
 const express = require("express");
 
-
 const app = express();
+
+app.set('view engine', 'ejs'); //подключаем ejs, доп. создаем папку views
 
 app.get("/", function(req, res){
 
     let today = new Date();
-    let currentDay = today.getDate();
+    let currentDay = today.getDay();
+    let day = "";
 
-    if (currentDay === 6 || currentDay === 0) {
+   switch (currentDay) {
+    case 0:
+        day = "Sunday";
+        break;
+        case 1:
+        day = "Monday";
+        break;
+        case 2:
+        day = "Tuesday";
+        break;
+        case 3:
+        day = "Wednesday";
+        break;
+        case 4:
+        day = "Thursday";
+        break;
+        case 5:
+        day = "Friday";
+        break;
+        case 6:
+        day = "Saturday";
+        break;    
+       default:
+        console.log("Error: current day is equal to: " + currentDay);
+   }
 
-        res.sendFile(__dirname + "/weekend.html");
-           
-     } else {
-        
-        res.sendFile(__dirname + "/weekday.html");
+    // if (currentDay === 6 || currentDay === 0) {
+    //     day = "Weekend";
+    //  } else {
+    //     day = "Weekday";
+    // }
 
-        // res.write("<p>It is not the weekend.</p>")
-        // res.write("<h1>Boo! I have to work!</h1>");
-        //  res.send(); //используется только 1 раз
-       
-    }
+    res.render('list', {kindOfDay: day}); //ejs method, render a file list and find kindOfDay variable and set the value of day
 
+    
 });
 
 app.listen(3000, function(){
