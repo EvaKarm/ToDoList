@@ -11,11 +11,17 @@ app.get("/", function(req, res){
     let currentDay = today.getDate();
 
     if (currentDay === 6 || currentDay === 0) {
-        res.write("<h1>Yay it's the weekend!</h1>");
-    } else {
-        res.write("<p>It is not the weekend.</p>")
-        res.write("<h1>Boo! I have to work!</h1>");
-     res.send(); //используется только 1 раз
+
+        res.sendFile(__dirname + "/weekend.html");
+           
+     } else {
+        
+        res.sendFile(__dirname + "/weekday.html");
+
+        // res.write("<p>It is not the weekend.</p>")
+        // res.write("<h1>Boo! I have to work!</h1>");
+        //  res.send(); //используется только 1 раз
+       
     }
 
 });
