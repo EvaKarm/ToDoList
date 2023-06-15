@@ -6,7 +6,18 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req, res){
-  res.send("Hello");
+
+    let today = new Date();
+    let currentDay = today.getDate();
+
+    if (currentDay === 6 || currentDay === 0) {
+        res.write("<h1>Yay it's the weekend!</h1>");
+    } else {
+        res.write("<p>It is not the weekend.</p>")
+        res.write("<h1>Boo! I have to work!</h1>");
+     res.send(); //используется только 1 раз
+    }
+
 });
 
 app.listen(3000, function(){
