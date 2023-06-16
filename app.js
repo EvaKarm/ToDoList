@@ -4,7 +4,7 @@ const express = require("express");
 
 const app = express();
 
-let item = "";
+let items = [];
 
 app.set('view engine', 'ejs'); //подключаем ejs, доп. создаем папку views
 
@@ -22,13 +22,16 @@ app.get("/", function(req, res){
 
     let day = today.toLocaleDateString('en-US', options);
 
-    res.render('list', {kindOfDay: day, newListItem: item}); //ejs method, render a file list and find kindOfDay variable and set the value of day
+    res.render('list', {kindOfDay: day, newListItems: items}); //ejs method, render a file list and find kindOfDay variable and set the value of day
 
     
 });
 
 app.post("/", function(req, res){
-  item = req.body.newItem; //stores user input (name = newItem) in variable 'item'
+  let item = req.body.newItem; //stores user input (name = newItem) in variable 'item'
+  
+  items.push(item); //создает массив из наших дел
+  
   console.log(item);
 
 res.redirect("/"); //после получения значения перенаправляет нас в начало app.get и render 2 gthtvtyys[ (+ newListItem)]
