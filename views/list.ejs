@@ -6,14 +6,18 @@
     <title>To Do List</title>
   </head>
   <body>
-    <!-- Переменная ejs kindOfDay, синтаксис ejs -->
-    <!-- <h1>It is a <%= kindOfDay %> !</h1> -->
+    <h1><%= kindOfDay %></h1>
 
-    <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
+    <ul>
+      <li>Buy Food</li>
+      <li>Cook food</li>
+      <li>Eat Food</li>
+    </ul>
+
+    <!-- <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
     <h1 style="color: purple"><%= kindOfDay %> ToDo List</h1>
     <% } else { %>
     <h1 style="color: blue"><%= kindOfDay %> ToDo List</h1>
-    <% } %>
-    <!-- Scriptlet' tag, for control-flow, dif. tags for dif. things, on each line -->
+    <% } %> -->
   </body>
 </html>
