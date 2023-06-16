@@ -12,7 +12,13 @@
       <li>Buy Food</li>
       <li>Cook food</li>
       <li>Eat Food</li>
+      <li><%= newListItem %></li>
     </ul>
+
+    <form action="/" method="post">
+      <input type="text" name="newItem" />
+      <button type="submit" name="button">Add</button>
+    </form>
 
     <!-- <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
     <h1 style="color: purple"><%= kindOfDay %> ToDo List</h1>
