@@ -7,20 +7,32 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <h1><%= kindOfDay %></h1>
 
-    <ul>
+<div class="box" id="heading">
+  <h1><%= kindOfDay %></h1>
+</div>
+
+  <div class="box">
+    
      
-     <% for (var i=0; i<newListItems.length; i++) { %> 
-        <li><%= newListItems[i] %></li>
-     <% } %> 
+      <% for (var i=0; i<newListItems.length; i++) { %> 
+         <div class="item">
 
-    </ul>
+          <!-- creating check box -->
+          <input type="checkbox"> 
+          <p><%= newListItems[i] %></p>
+         </div>
+          
+        <% } %>  
+        <form class="item" action="/" method="post">
+          <input type="text" name="newItem" placeholder="New Item" autocomplete="off"/>  <!-- автозаполнение отключает предложение предыдущих вводных данных -->
 
-    <form action="/" method="post">
-      <input type="text" name="newItem" />
-      <button type="submit" name="button">Add</button>
-    </form>
+          <button type="submit" name="button">+</button>
+        </form>
+  </div>
+    
+
+ 
 
     <!-- <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
     <h1 style="color: purple"><%= kindOfDay %> ToDo List</h1>
