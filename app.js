@@ -4,7 +4,7 @@ const express = require("express");
 
 const app = express();
 
-let items = [];
+let items = ["Buy Food", "Cook food", "Eat Food"]; //todo list
 
 app.set('view engine', 'ejs'); //подключаем ejs, доп. создаем папку views
 
@@ -32,7 +32,6 @@ app.post("/", function(req, res){
   
   items.push(item); //создает массив из наших дел
   
-  console.log(item);
 
 res.redirect("/"); //после получения значения перенаправляет нас в начало app.get и render 2 gthtvtyys[ (+ newListItem)]
 
