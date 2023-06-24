@@ -9,6 +9,7 @@ let items = ["Buy Food", "Cook food", "Eat Food"]; //todo list
 app.set('view engine', 'ejs'); //подключаем ejs, доп. создаем папку views
 
 app.use(express.urlencoded({ extended: true })); //instead of body-parser, which is not nessasary in new version express
+app.use(express.static("public")); //добавляет папку public к нашему проекту (обычный способ в express не работает)
 
 app.get("/", function(req, res){
 
