@@ -39,8 +39,7 @@ if (req.body.list === "Work") {
   workItems.push(item);
   res.redirect("/work");
 } else {
-  items.push(item); //создает массив из наших дел
-  
+  items.push(item); //создает массив из наших дел  
 
   res.redirect("/"); //после получения значения перенаправляет нас в начало app.get и render 2 gthtvtyys[ (+ newListItem)]
   
@@ -60,7 +59,10 @@ app.post("/work", function(req,res){
   res.redirect("/work");
 })
 
-
+//объявляем about стр
+app.get("/about", function(req, res){
+res.render("about");
+})
 
 
 app.listen(3000, function(){
