@@ -9,7 +9,8 @@
   <body>
 
 <div class="box" id="heading">
-  <h1><%= kindOfDay %></h1>
+  <!-- поменяли название kindOfDay для наглядности создания новой стр work -->
+  <h1><%= listTitle %></h1> 
 </div>
 
   <div class="box">
@@ -27,17 +28,14 @@
         <form class="item" action="/" method="post">
           <input type="text" name="newItem" placeholder="New Item" autocomplete="off"/>  <!-- автозаполнение отключает предложение предыдущих вводных данных -->
 
-          <button type="submit" name="button">+</button>
+          <!-- меняем value кнопки для идентификации и if statement -->
+          <button type="submit" name="list" value=<%= listTitle %>>+</button>
         </form>
   </div>
     
 
  
 
-    <!-- <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
-    <h1 style="color: purple"><%= kindOfDay %> ToDo List</h1>
-    <% } else { %>
-    <h1 style="color: blue"><%= kindOfDay %> ToDo List</h1>
-    <% } %> -->
+
   </body>
 </html>
