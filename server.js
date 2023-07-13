@@ -4,6 +4,10 @@ const express = require("express");
 
 const app = express();
 
+const date = require(__dirname + "/date.js"); //свойство node объявлять модули,  date.js
+
+console.log(date);// выводит данные из export в date.js в консоли
+
 let items = ["Buy Food", "Cook food", "Eat Food"]; //todo list
 let workItems = []; //для создания нового списка на стр work
 
@@ -14,15 +18,9 @@ app.use(express.static("public")); //добавляет папку public к н�
 
 app.get("/", function(req, res){
 
-    let today = new Date();
-   
-    let options = {
-      weekday: "long",
-      day: "numeric",
-      month: "long"
-    };
+ 
 
-    let day = today.toLocaleDateString('en-US', options);
+
 
     res.render('list', {listTitle: day, newListItems: items}); //ejs method, render a file list and find kindOfDay variable and set the value of day
 
