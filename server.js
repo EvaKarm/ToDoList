@@ -9,8 +9,8 @@ const date = require(__dirname + "/date.js"); //свойство node объяв
 //console.log(date);// выводит данные из export в date.js в консоли
 //console.log(date()); //экспортирует запуск функции
 
-let items = ["Buy Food", "Cook food", "Eat Food"]; //todo list
-let workItems = []; //для создания нового списка на стр work
+const items = ["Buy Food", "Cook food", "Eat Food"]; //todo list, const подходит для ненового массива
+const workItems = []; //для создания нового списка на стр work
 
 app.set('view engine', 'ejs'); //подключаем ejs, доп. создаем папку views
 
@@ -20,12 +20,11 @@ app.use(express.static("public")); //добавляет папку public к н�
 app.get("/", function(req, res){
 
  //let day = date(); //из созданного модуля date.js вызываеим функцию
- let day = date.getDate();
+ const day = date.getDate();
  //или let day = date.getDay();
 
 
     res.render('list', {listTitle: day, newListItems: items}); //ejs method, render a file list and find kindOfDay variable and set the value of day
-
     
 });
 
